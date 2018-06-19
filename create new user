@@ -1,0 +1,23 @@
+(function(addUser){
+	
+		
+		//Create the New User
+		var gr = new GlideRecord("sys_user");
+	    var company = current.variables.u_company;
+	    var location = current.variables.u_location;
+		gr.initialize();
+		
+		gr.first_name = current.variables.u_first_name;
+		gr.last_name = current.variables.u_last_name;	
+		gr.title = (company + " - " + location);
+		gr.manager = current.variables.u_manager;
+		gr.user_name = current.variables.u_zid;
+		gr.email = current.variables.u_email;
+	    gr.u_employee_type = "vendor or consultant";
+	    //gr.password_needs_reset = 'true';
+		
+		
+		var newUser = gr.insert();
+		
+	
+}());
